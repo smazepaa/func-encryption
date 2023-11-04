@@ -14,14 +14,15 @@
 #     return ''.join(chr(ord(c) - key) for c in text)
 
 
-encrypt = lambda text, key: ''.join(chr(ord(c) + key) for c in text)
-decrypt = lambda text, key: ''.join(chr(ord(c) - key) for c in text)
+encrypt = lambda text, key: ''.join(chr((ord(c) + key) % 128) for c in text)
+decrypt = lambda text, key: ''.join(chr((ord(c) - key) % 128) for c in text)
 
 
-# command - encrypt/decrypt
-# get_text - either get from console or file
-# output_text - either get from console or file
+# command - function to encrypt/decrypt
+# get_text - function to get from console/file
+# output_text - function to get from console/file
 
 def execute(command, get_text, key, output_text):
-    text = command(get_text, key)
-    return output_text(text)
+    text = get_text()
+    encrypted_or_decrypted_text = command(text, key)
+    output_text(encrypted_or_decrypted_text)

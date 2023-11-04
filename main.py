@@ -1,16 +1,12 @@
-from encryption import execute, encrypt, decrypt
-from filestream import read_file, write_file, read_console, write_console
+from processing import process_command
 
-text = "abc"
+source = input("How do you want to input text? ")
+file_i = input("Enter path to the input file: ") if source == "file" else None
 
-source = input("how you want to input text? ")
-where_to = input("how you want to output text? ")
-command = input("do you want to encrypt or decrypt? ")
-key = int(input("enter a key: "))
+where_to = input("How do you want to output text? ")
+file_o = input("Enter path to the output file: ") if where_to == "file" else None
 
-if source == "file":
-    file_i = input("enter path to the input file: ")
-    if command == "encrypt":
-        if where_to == "console":
-            # file_o = input("enter path to the output file: ")
-            execute(encrypt, read_file(file_i), key, write_console)
+command = input("Do you want to encrypt or decrypt? ")
+key = int(input("Enter a key: "))
+
+process_command(source, command, where_to, key)
