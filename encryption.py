@@ -23,6 +23,5 @@ decrypt = lambda text, key: ''.join(chr((ord(c) - key) % 128) for c in text)
 # output_text - function to get from console/file
 
 def execute(command, get_text, key, output_text):
-    text = get_text()
-    encrypted_or_decrypted_text = command(text, key)
+    encrypted_or_decrypted_text = command(get_text, key)
     output_text(encrypted_or_decrypted_text)

@@ -1,12 +1,12 @@
 from encryption import execute, encrypt, decrypt
-from filestream import read_file, write_file, read_console, write_console
+from filestream import read_file, write_file, write_console
 
 
-def process_command(source, command, where_to, key, file_i=None, file_o=None):
+def process_command(source, command, where_to, key, file_i, file_o, console_i):
     if source == "file":
         get_text = read_file(file_i)
     elif source == "console":
-        get_text = read_console
+        get_text = console_i
     else:
         print("Invalid source")
         return
