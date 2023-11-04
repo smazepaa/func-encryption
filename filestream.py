@@ -10,9 +10,9 @@ def write_file(filename, text):
 
 
 def read_console():
-    text = input("enter text: ")
+    text = input("Enter text: ")
     return text
 
 
 def write_console(text):
-    print(text)
+    print("Output text:", text)

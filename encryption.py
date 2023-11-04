@@ -8,8 +8,6 @@ my_lib.encrypt.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
 my_lib.encrypt.restype = ctypes.c_char_p
 my_lib.decrypt.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
 my_lib.decrypt.restype = ctypes.c_char_p
-my_lib.free_memory.argtypes = [ctypes.c_char_p]
-my_lib.free_memory.restype = None
 
 
 encrypt = lambda text, key: my_lib.encrypt(text.encode(), key, len(text)).decode()
